@@ -4,15 +4,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ValidationError extends StandardError{
+	
+	
+
+
+	public ValidationError(Integer status, String msg, Long timestamp, String path, String error) {
+		super(status, msg, timestamp, path, error);
+	}
+
 	private static final long serialVersionUID = 1L;
 
 	
 	private List<FieldMessage> erros = new ArrayList<>(); 
 	
-	public ValidationError(Integer status, String msg, Long timestamp) {
-		super(status, msg, timestamp);
 
-	}
 
 	public List<FieldMessage> getErrors() {
 		return erros;
