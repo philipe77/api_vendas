@@ -57,6 +57,14 @@ public class ClienteResource {
 	public ResponseEntity<?> findCliente(@PathVariable Integer id) {
 		return ResponseEntity.ok().body(service.find(id));
 	}
+	
+
+	@GetMapping(value = "/email")
+	public ResponseEntity<?> findCliente(@RequestParam(value="value") String email) {
+		System.out.println(email);
+		Cliente obj = service.findByEmail(email);
+		return ResponseEntity.ok().body(obj);
+	}
 
 
 	@PutMapping(value = "/{id}")
@@ -86,5 +94,7 @@ public class ClienteResource {
 		URI uri = service.uploadProfilePicture(file);
 		return ResponseEntity.created(uri).build();
 	}
+	
+	
 
 }
